@@ -15,7 +15,7 @@ function HomeContainer() {
 
   const bringData = async () => {
     try {
-      const users = await fetch("http://localhost:3034/usuarios").then((data) =>
+      const users = await fetch("https://be-fsi-login-eleo.onrender.com/usuarios").then((data) =>
         data.json()
       );
 

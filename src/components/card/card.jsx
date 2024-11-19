@@ -1,7 +1,7 @@
 // src/components/card/card.jsx
 import React, { useEffect, useState } from 'react';
 import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../firebaseConfig'; 
+import { db } from '../../firebaseConfig';
 import styles from './card.module.css';
 
 const Card = () => {

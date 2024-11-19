@@ -3,12 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_MESSAGING_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "922891554048",
+  authDomain: "922891554048",
+  projectId: "casasbogota-2a61d",
+  storageBucket: "922891554048",
+  messagingSenderId: "922891554048",
+  appId: "922891554048"
 };
 
 const app = initializeApp(firebaseConfig);

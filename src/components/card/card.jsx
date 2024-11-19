@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection } from "firebase/firestore";
+import { ref, onValue } from "firebase/database";
 import { db } from "../../firebaseConfig";
 import styles from "./card.module.css";
 
@@ -7,17 +7,18 @@ const Card = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "CasasBogota"));
-        const itemsArray = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setItems(itemsArray);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
+    const fetchItems = () => {
+      const casasRef = ref(db, "CasasBogota"); // Ruta dentro de tu base de datos
+      onValue(casasRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const itemsArray = Object.entries(data).map(([id, value]) => ({
+            id,
+            ...value,
+          }));
+          setItems(itemsArray);
+        }
+      });
     };
 
     fetchItems();

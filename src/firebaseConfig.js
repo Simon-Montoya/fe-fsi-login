@@ -1,16 +1,23 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-
+// Configuración del proyecto Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyA9dy1F39qVUOFtvc4Of1ZLKckwck7Zyss",
-  authDomain: "https://console.firebase.google.com/project/casasbogota-2a61d/database/casasbogota-2a61d-default-rtdb/data/~2F",
-  projectId: "casasbogota-2a61d",
-  storageBucket: "922891554048",
-  messagingSenderId: "922891554048",
-  appId: "922891554048"
+  apiKey: "AlzaSyA9dy1F39qVUOfvc4Of1ZLKckwck7Zyss", // Clave API
+  authDomain: "casasbogota-2a61d.firebaseapp.com", // Dominio de autenticación
+  databaseURL: "https://casasbogota-2a61d-default-rtdb.firebaseio.com/", // URL de Realtime Database
+  projectId: "casasbogota-2a61d", // ID del proyecto
+  storageBucket: "casasbogota-2a61d.appspot.com", // Almacenamiento de archivos
+  messagingSenderId: "922891554048", // ID del remitente de mensajes
+  appId: "1:922891554048:web:xxxxxxxxxxxxxxxxxxxxxx", // Identificador único de la aplicación
 };
 
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
+// Inicializar la base de datos
+const db = getDatabase(app);
+
+export { db };
+
+
